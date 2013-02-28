@@ -204,6 +204,7 @@ public class ClassicGame extends AbstractGame {
             } else {
                 send("game.jump.confirmation", gamePlayer.getDisplayName());
             }
+            tpAfterJumpSuccess(gamePlayer, column);
             for (ClassicGamePlayer deadPlayer : party.iterable()) {
                 if (deadPlayer.isDead()) {
                     removePlayer(deadPlayer);
