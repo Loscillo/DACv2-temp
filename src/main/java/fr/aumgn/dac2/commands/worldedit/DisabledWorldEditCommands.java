@@ -15,12 +15,12 @@ public class DisabledWorldEditCommands extends DACCommands {
         super(dac);
     }
 
-    @Command(name = "setwe", max = -1, strictFlags = false)
+    @Command(name = "setwe", max = -1)
     public void setwe(CommandSender sender, CommandArgs args) {
         sender.sendMessage(msg("disabled"));
     }
 
-    @Command(name = "select", max = -1, strictFlags = false)
+    @Command(name = "select", max = -1)
     public void select(CommandSender sender, CommandArgs args) {
         sender.sendMessage(msg("disabled"));
     }
