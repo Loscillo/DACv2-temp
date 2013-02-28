@@ -3,3 +3,5 @@ bin
 .project
 .settings
 target
+bin1
+.DS_Store
