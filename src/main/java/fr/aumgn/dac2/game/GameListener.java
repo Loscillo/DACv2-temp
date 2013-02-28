@@ -8,6 +8,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 
 import fr.aumgn.dac2.arena.Arena;
 
@@ -40,6 +42,11 @@ public class GameListener implements Listener {
         game.onJumpSuccess(player);
     }
 
+    public void onTeleport(PlayerTeleportEvent event){
+    	if(game.isPlayerTurn(event.getPlayer()) && !(event.getCause().equals(TeleportCause.COMMAND)))
+    		game.onJumpFail(event.getPlayer());
+    }
+    
     @EventHandler(priority = EventPriority.HIGH)
     public void onDamage(EntityDamageEvent event) {
         if (event.getCause() != DamageCause.FALL) {
